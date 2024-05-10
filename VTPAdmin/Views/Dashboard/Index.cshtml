@@ -90,13 +90,11 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <script>
-        // Function to fetch data from the controller action
         function fetchData() {
             $.ajax({
                 url: '@Url.Action("GenderDistribution", "Dashboard")',
                 type: 'GET',
                 success: function (data) {
-                    // Update pie chart with fetched data
                     updatePieChart(data);
                 },
                 error: function (xhr, status, error) {
@@ -105,7 +103,6 @@
             });
         }
 
-        // Function to update the pie chart with new data
         function updatePieChart(data) {
             var ctx = document.getElementById('pieChart').getContext('2d');
             var pieChart = new Chart(ctx, {
@@ -126,24 +123,23 @@
                     responsive: true,
                     plugins: {
                         legend: {
-                            position: 'bottom', // Position the legend at the bottom
+                            position: 'bottom', 
                             labels: {
-                                boxWidth: 20, // Adjust legend box width
-                                padding: 20 // Add padding between legend items
+                                boxWidth: 20, 
+                                padding: 20 
                             }
                         }
                     },
                     layout: {
                         padding: {
-                            left: 70, // Add left padding for the chart
-                            right: 70 // Add right padding for the chart
+                            left: 70, 
+                            right: 70
                         }
                     }
                 }
             });
         }
-
-        // Fetch data initially when the page loads
+        
         fetchData();
     </script>
 
@@ -230,7 +226,6 @@
                             'rgba(255, 206, 86, 0.7)',
                             'rgba(75, 192, 192, 0.7)',
                             'rgba(153, 102, 255, 0.7)'
-                            // Add more colors as needed
                         ],
                         borderColor: 'rgba(255, 255, 255, 1)',
                         borderWidth: 1

@@ -46,7 +46,7 @@ namespace VTPAdmin.Controllers
         }
 
         [HttpGet]
-        [Authorize] //kiminse logout ola bilmese ucun evvelce hemin sisteme authorize olmus olmasi lazimdi
+        [Authorize] 
         public async Task<IActionResult> LogOut()
         {
             await signInManager.SignOutAsync();
