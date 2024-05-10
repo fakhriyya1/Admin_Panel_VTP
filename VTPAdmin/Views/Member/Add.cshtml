@@ -1,0 +1,67 @@
+﻿@model CreateMemberVM
+
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">İştirakçı əlavə edin</h4>
+                <form class="forms-sample" asp-controller="Member" asp-action="Add" method="post">
+                    <div asp-validation-summary="ModelOnly"></div>
+                    <div class="form-group">
+                        <label asp-for="FullName">Tam Ad</label>
+                        <input asp-for="FullName" type="text" class="form-control" placeholder="Tam Ad">
+                        <span asp-validation-for="FullName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Age">Yaş</label>
+                        <input asp-for="Age" type="number" class="form-control" placeholder="Yaş">
+
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="StudiedAt">Universitet</label>
+                        <input asp-for="StudiedAt" type="text" class="form-control" placeholder="Universitet">
+                        <span asp-validation-for="StudiedAt" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Gender">Cins</label>
+                        <select asp-for="Gender" class="form-control">
+                            <option value="Kişi">Kişi</option>
+                            <option value="Qadın">Qadın</option>
+                        </select>
+                        <span asp-validation-for="Gender" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Field">İxtisas</label>
+                        <input asp-for="Field" type="text" class="form-control" placeholder="İxtisas">
+                        <span asp-validation-for="Field" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="StudyYear">Kurs</label>
+                        <input asp-for="StudyYear" type="text" class="form-control" placeholder="Kurs">
+                        <span asp-validation-for="StudyYear" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Degree">Təhsil Səviyyəsi</label>
+                        <input asp-for="Degree" type="text" class="form-control" placeholder="Təhsil Səviyyəsi">
+                        <span asp-validation-for="Degree" class="text-danger"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <button type="button" class="btn btn-light" id="cancelButton">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.getElementById("cancelButton").addEventListener("click", function () {
+            window.location.href = "@Url.Action("Index", "Member")";
+        })
+    </script>
+}

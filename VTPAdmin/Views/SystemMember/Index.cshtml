@@ -1,0 +1,38 @@
+﻿@model List<UserVM>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-body">
+        <div class="d-flex m-3 justify-content-between align-items-baseline">
+            <h4 class="card-title">İstifadəçilər</h4>
+            <a asp-controller="User" asp-action="Add" class="btn btn-inverse-info btn-fw">Əlavə et</a>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="table-responsive">
+                    <table id="order-listing" class="table">
+                        <thead>
+                            <tr>
+                                <th>İstifadəçi email</th>
+                                <th>İstifadəçi rol</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.Email</td>
+                                    <td>@item.Role</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
